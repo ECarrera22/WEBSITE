@@ -1,0 +1,115 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Keller Williams Realty Partners</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    function changeLanguage(language) {
+      const texts = {
+        es: {
+          about: "Sobre nosotros",
+          contact: "Contáctanos",
+          products: "Propiedades Destacadas",
+          whatsapp: "Contacta por WhatsApp",
+          name: "Nombre",
+          email: "Correo electrónico",
+          message: "Mensaje",
+          send: "Enviar",
+          location: "Nuestra Ubicación",
+        },
+        en: {
+          about: "About Us",
+          contact: "Contact Us",
+          products: "Featured Properties",
+          whatsapp: "Contact via WhatsApp",
+          name: "Name",
+          email: "Email",
+          message: "Message",
+          send: "Send",
+          location: "Our Location",
+        },
+      };
+      
+      for (const [id, text] of Object.entries(texts[language])) {
+        const el = document.getElementById(`${id}-text`) || document.getElementById(`${id}-placeholder`);
+        if (el) {
+          if (el.placeholder !== undefined) el.placeholder = text;
+          else el.innerText = text;
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-gradient-to-b from-white via-gray-50 to-gray-100 text-gray-900 font-sans">
+
+  <nav class="bg-white shadow-md fixed top-0 w-full z-10">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <div class="flex items-center space-x-4">
+        <img src="logo.png" alt="Logo" class="h-10 w-10 object-contain" />
+        <span class="text-2xl font-bold tracking-wide text-gray-800">Keller Williams Realty Partners</span>
+      </div>
+      <div class="flex space-x-6">
+        <button onclick="changeLanguage('es')" class="text-sm hover:text-red-500">Español</button>
+        <button onclick="changeLanguage('en')" class="text-sm hover:text-red-500">English</button>
+      </div>
+    </div>
+  </nav>
+
+  <section class="pt-32 pb-20 text-center">
+    <h1 class="text-5xl font-extrabold mb-4">Keller Williams Realty Partners</h1>
+    <p class="text-lg text-gray-600">Expertos en encontrar la casa de tus sueños con confianza y estilo.</p>
+  </section>
+
+  <section class="max-w-6xl mx-auto py-20 px-6 grid md:grid-cols-2 gap-10 items-center">
+    <img src="mi-foto.jpg" alt="Mi Foto" class="rounded-3xl shadow-lg w-full h-auto" />
+    <div>
+      <h2 id="about-text" class="text-4xl font-bold mb-6">Sobre nosotros</h2>
+      <p class="text-gray-700 leading-relaxed">
+        Somos un equipo de profesionales dedicados al sector inmobiliario, ofreciendo una experiencia personalizada
+        y de alta calidad. Nos enorgullece acompañarte en cada paso hacia tu nueva propiedad.
+      </p>
+    </div>
+  </section>
+
+  <section class="bg-white py-20">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 id="products-text" class="text-4xl font-bold text-center mb-12">Propiedades Destacadas</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="transform hover:scale-105 transition duration-300 bg-gray-50 p-6 rounded-2xl shadow">
+          <img src="casa1.jpg" alt="Casa 1" class="rounded-2xl mb-4">
+          <h3 class="text-xl font-semibold">Casa Moderna en la Ciudad</h3>
+          <p class="text-gray-600 mt-2">4 habitaciones, 3 baños, excelente ubicación.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 px-6 max-w-4xl mx-auto">
+    <h2 id="contact-text" class="text-4xl font-bold text-center mb-10">Contáctanos</h2>
+    <form class="space-y-6">
+      <input id="name-placeholder" type="text" placeholder="Nombre" class="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-400" required />
+      <input id="email-placeholder" type="email" placeholder="Correo electrónico" class="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-400" required />
+      <textarea id="message-placeholder" placeholder="Mensaje" class="w-full p-4 border border-gray-300 rounded-lg h-32 focus:ring-2 focus:ring-red-400" required></textarea>
+      <button id="send-button" type="submit" class="bg-red-500 text-white font-bold px-8 py-4 rounded-lg hover:bg-red-600 transition">Enviar</button>
+    </form>
+    <div class="text-center mt-8">
+      <a href="https://wa.me/tu-numero" target="_blank" id="whatsapp-text" class="inline-block bg-green-500 text-white py-3 px-6 rounded-full hover:bg-green-600 transition">Contacta por WhatsApp</a>
+    </div>
+  </section>
+
+  <section class="py-20">
+    <h2 id="location-text" class="text-4xl font-bold text-center mb-10">Nuestra Ubicación</h2>
+    <div class="max-w-5xl mx-auto px-6">
+      <iframe class="w-full h-80 rounded-2xl" src="https://www.google.com/maps/embed?pb=tu-enlace-de-mapa" allowfullscreen loading="lazy"></iframe>
+    </div>
+  </section>
+
+  <footer class="bg-gray-900 text-gray-400 py-8 text-center">
+    <p class="text-sm">&copy; 2025 Keller Williams Realty Partners. Todos los derechos reservados.</p>
+  </footer>
+
+</body>
+</html>
